@@ -3,6 +3,9 @@ const Religion = require("../models/religion");
 const { validationResult } = require("express-validator");
 
 const getReligion = async (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Allow all origins
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   try {
     const religions = await Religion.find({}).sort({ name: 1 });
 
