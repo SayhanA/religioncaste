@@ -1,5 +1,6 @@
 const { default: mongoose } = require("mongoose");
 const Religion = require("../models/religion");
+const { validationResult } = require("express-validator");
 
 const getReligion = async (req, res, next) => {
   try {
@@ -17,14 +18,13 @@ const getReligion = async (req, res, next) => {
   }
 };
 
-const postReligion = async (req, res) => {
+const postReligion = async (req, res, next) => {
   try {
     const { name, description, isActive } = req.body;
 
-    if (!name || !description) {
-      return res
-        .status(400)
-        .json({ message: "Name and description are required." });
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(404).json({ message: errors.array()[0].msg });
     }
 
     const religion = new Religion({
@@ -52,10 +52,10 @@ const postReligion = async (req, res) => {
 const deleteReligion = async (req, res, next) => {
   try {
     const { id } = req.query;
-    console.log("Received ID:", id);
 
-    if (!id) {
-      return res.status(400).json({ message: "ID is required." });
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(404).json({ message: errors.array()[0].msg });
     }
 
     const religion = await Religion.findByIdAndDelete(id);
