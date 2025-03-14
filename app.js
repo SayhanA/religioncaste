@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
-app.use("/religions", require("./router/religion"));
+app.use("/", require("./router/religion"));
 app.use("/casts", require("./router/caste"));
 
 app.use((req, res) => {
