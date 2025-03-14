@@ -143,7 +143,7 @@ The Religion API is a backend application designed to manage religions and caste
 
 ## Postman Collection
 The Postman collection for testing the API can be accessed via this link:
-[Religion API Collection](https://lunar-zodiac-41401.postman.co/workspace/Team-Workspace~65a23fa5-ff62-4503-823b-dc87393c186d/collection/22980443-0f88203c-f169-4c0d-af55-a9fba573738d?action=share&source=collection_link&creator=22980443)
+[Religion API Collection](https://drive.google.com/file/d/1poYyGL4V4NGlGeijgspKzHE8AjYUcMNS/view?usp=sharing)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
