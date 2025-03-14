@@ -8,6 +8,14 @@ const {
 
 const routes = require("express").Router();
 
+app.use(
+  cors({
+    origin: "*", 
+    methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"], 
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 routes.get("/", getReligion);
 
 routes.post(
