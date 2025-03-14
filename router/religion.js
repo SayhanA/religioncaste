@@ -4,7 +4,6 @@ const {
   deleteReligion,
   updatedReligion,
 } = require("../controllers/religion");
-const { updateOne } = require("../models/religion");
 
 const routes = require("express").Router();
 

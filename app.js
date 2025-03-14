@@ -17,13 +17,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.use("/religions", require("./router/religion"));
+app.use("/casts", require("./router/caste"));
 
-// app.use('/api', require('./routes/api'));
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
 });
 
-// Start server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

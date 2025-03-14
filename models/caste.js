@@ -1,9 +1,11 @@
-const { Schema } = require("mongoose");
+const { Schema, default: mongoose } = require("mongoose");
 
 const casteSchema = new Schema({
   name: {
     type: String,
     required: true,
+    unique: true,
+    trim: true,
   },
   description: {
     type: String,
