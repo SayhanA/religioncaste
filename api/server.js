@@ -11,7 +11,13 @@ const port = process.env.PORT || 4000;
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", // Allow all origins (Change this for production)
+    methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"], // Allowed methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+  })
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
