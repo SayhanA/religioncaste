@@ -32,4 +32,4 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
-// app.listen(port, () => {console.log(`You server is running on : http://localhost:${port}`);})
+app.listen(port, () => {console.log(`You server is running on : http://localhost:${port}`);})
