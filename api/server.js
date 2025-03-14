@@ -11,7 +11,13 @@ const port = process.env.PORT || 4000;
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://religionapp.netlify.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -32,3 +38,4 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+// app.listen(port, () => {console.log(`You server is running on : http://localhost:${port}`);})
