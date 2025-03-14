@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const cors = require("cors");
+const cors = require('cors');
 const { connectDB } = require("../config/db");
 require("dotenv").config();
 const app = express();
@@ -11,13 +11,7 @@ const port = process.env.PORT || 4000;
 connectDB();
 
 // Middleware
-app.use(
-  cors({
-    origin: "https://religionapp.netlify.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
