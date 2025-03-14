@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const { connectDB } = require("./config/db");
+const { connectDB } = require("../config/db");
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 4000;
@@ -16,18 +16,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
-app.use("/", require("./router/religion"));
-app.use("/casts", require("./router/caste"));
+app.use("/religions", require("../router/religion"));
+app.use("/casts", require("../router/caste"));
 
 app.use((req, res) => {
-  res.status(404).json({ message: "Route not found" });
+  // res.status(404).json({ message: "Route not found" });
+  res.send("Hello world!");
 });
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ message: 'Internal Server Error', error: err.message });
+  res
+    .status(500)
+    .json({ message: "Internal Server Error", error: err.message });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+module.exports = app;
